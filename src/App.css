@@ -343,6 +343,10 @@ footer p {
     height: auto;
   }
 
+  header:after {
+    content: none;
+  }
+
   header .image {
     float: none;
     margin: 0;
