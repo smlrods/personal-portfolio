@@ -49,7 +49,7 @@ function Main() {
         <h2 className='title'>My Work</h2>
         <div className='grid-project'>
           {projects.map((project, index) => {
-            return <ProjectCard project={project} index={index + 1} />
+            return <ProjectCard key={`project-card-${index}`} project={project} index={index + 1} />
           })}
         </div>
       </div>
@@ -59,7 +59,7 @@ function Main() {
 
 function ProjectCard({project, index}) {
   return (
-    <div className='project-card' key={`card-${index}`}>
+    <div className='project-card'>
       <div className='screenshort'></div>
       <div className='content'>
         <div className='header'>
