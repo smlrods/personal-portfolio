@@ -1,38 +1,380 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@200;400;600;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Sora', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  background: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+  font-size: 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+a, a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+header {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --scale-rate: 1.2;
+  background-image: url('https://preview.redd.it/1920x1080-call-of-the-night-v0-7jzybi57faa91.png?auto=webp&s=c3833f1dcf61cc87de43794245b67fb9ee479ed4');
+  background-size: cover;
+  background-position: center;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(180deg, rgba(0,0,0,0), black);
+}
+
+/* DESKTOP */
+
+/* HEADER */
+
+header .image {
+  background-image: url('https://avatars.githubusercontent.com/u/84884629?v=4');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transform-origin: right;
+  transform: scale(var(--scale-rate));
+  border: 5px solid white;
+}
+
+header .image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(180deg, rgba(0,0,0,0), black);
+}
+
+header .image h1 {
+  position: absolute;
+  bottom: 0;
+  font-size: 70px;
+  color: white;
+  padding: 20px;
+  user-select: none;
+  line-height: 1;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1000px;
+  width: 100%;
+  margin: 10px;
+  position: relative;
+}
+
+header .container {
+  border: 1px solid white;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 400px;
+}
+
+header .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.5;
+  max-height: 100%;
+  padding: 0 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+header .content h2 {
+  margin: 10px 0;
+}
+
+header .description {
+  margin-bottom: 10px;
+  text-overflow: ellipsis;
+  overflow: auto;
+  flex-shrink: 1;
+}
+
+header .socials {
+  position: relative;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
+header .socials a {
+  text-decoration: none;
+  font-size: 30px;
+}
+
+header .socials a:visited {
+  color: white;
+}
+
+/* MAIN */
+
+main {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main .container {
+  border: 0;
+}
+
+main .container h2 {
+  margin-bottom: 10px;
+}
+
+main .grid-project {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: center;
+  gap: 30px;
+}
+
+/* project card */
+.project-card {
+  border: 1px solid white;
+  transition: transform .2s ease-in-out;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card .screenshort {
+  height: 200px;
+  background-image: url('https://animecorner.me/wp-content/uploads/2022/08/call-of-the-night-episode-5-2.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.project-card .content {
+  padding: 20px;
+}
+
+.project-card .content .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-card .content .header .name {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.project-card .content .header .links {
+  font-size: 20px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.project-card .content .header .links a:hover {
+  transition: transform .1 ease-in-out;
+}
+
+.project-card .content .header .links a:hover {
+  /* font-size: 25px; */
+  transform: translateY(-2px);
+}
+
+.project-card .content .description{
+  font-weight: 200;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid white;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+footer .contact-me h2 {
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+footer p {
+  font-weight: 200;
+}
+
+.footer-image {
+  width: 700px;
+  height: 400px;
+  background-image: url('https://i0.wp.com/blog.wallpaperaccess.in/wp-content/uploads/2022/06/Yofukashi-no-Uta-Call-of-the-Night-Release-Date.webp?resize=1600%2C900&ssl=1');
+  background-position: center;
+  background-size: cover;
+  border: 1px solid white;
+}
+
+.contact-me > div {
+  margin-bottom: 20px;
+}
+
+.contacts .contact {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+
+.contacts .contact .icon {
+  font-size: 30px;
+  padding: 5px;
+}
+
+.contact-me .socials {
+  font-size: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.socials a {
+  transition: transform .1 ease-in-out;
+}
+
+.socials a:hover {
+  transform: translateY(-2px);
+}
+
+/* LAPTOP */
+@media (max-width: 1160px) {
+  header .image {
+    transform: scale(1);
+    height: 450px;
+    top: -25px;
   }
-  to {
-    transform: rotate(360deg);
+
+  header .container {
+    border-left: 0;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+  header {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  header .image {
+    width: 300px;
+    height: 400px;
+    float: left;
+    transform-origin: right bottom;
+    transform: scale(1.2);
+    margin-right: 20px;
+    top: 0;
+  }
+
+  header .title {
+    font-size: 35px;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  header .image h1 {
+    top: -20px;
+    right: calc(-100% + 55px);
+    font-size: 60px;
+  }
+
+  header .content {
+    border: 1px solid white;
+    display: block;
+  }
+
+  header .container {
+    min-width: 500px;
+    padding-bottom: 20px;
+    display: block;
+    border: 0;
+    margin: 80px;
+  }
+
+  header .description {
+    display: inline;
+  }
+
+  header .socials {
+    display: none;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+  header {
+    height: auto;
+  }
+
+  header .image {
+    float: none;
+    margin: 0;
+    transform: scale(1);
+    max-width: 400px;
+    width: 100%;
+    top: 20px;
+  }
+
+  header .image h1 {
+    top: auto;
+    right: auto;
+    bottom: 0;
+  }
+
+  header .content {
+    display: block;
+    border: 0;
+  }
+
+  header .container {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer .container {
+    flex-direction: column;
+  }
+
+  footer .footer-image {
+    width: 100%;
   }
 }
